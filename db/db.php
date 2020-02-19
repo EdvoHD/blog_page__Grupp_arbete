@@ -4,7 +4,7 @@
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $db = "guestbook";
+    $db = "blog_page";
 
     
     // MAKE CONNECTION
