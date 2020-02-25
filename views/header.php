@@ -18,5 +18,6 @@
 </head>
 <body>
 <h1>PHP-sidan!</h1>
-<a href="index.php">Start</a> | <a href="about.php">Om oss</a> | <a href="loginForm.php">Logga in</a>
+<!-- <a href="index.php">Start</a> | <a href="views/about.php">Om oss</a> | <a href="views/loginForm.php">Logga in</a> -->
+<a href="index.php">Start</a> | <a href="index.php?page=about">Om oss</a> | <a href="index.php?page=login">Logga in</a>
 <hr />

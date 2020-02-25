@@ -1,6 +1,6 @@
 <?php
 
-    include("db/db.php");
+    include("../db/db.php");
 
     $username = (!empty($_POST['username']) ? $_POST['username'] : "");
     $email    = (!empty($_POST['email']) ? $_POST['email'] : "");
@@ -43,7 +43,7 @@
     if(!$return) {
         print_r($dbh->errorInfo());
     } else {
-        header("location:index.php");
+        header("location:../index.php?page=login");
     }
 
 
