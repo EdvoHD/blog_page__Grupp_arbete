@@ -1,4 +1,13 @@
 <?php
+    session_start();
+    $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
+    if(empty($_SESSION['username'])) {
+        echo "Var vänlig att registrera för att kunna se inläggen!";
+    }
+    else {
+        echo "Välkommen $loggedInUser!";
+    }
+
 $title = "PHP-sidan | Start";
 include("views/header.php");
 ?>

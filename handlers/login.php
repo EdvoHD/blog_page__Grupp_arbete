@@ -1,17 +1,16 @@
 <?php
     include("../db/db.php");
-
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    $query = "SELECT id, username, password FROM register_user WHERE username ='$username' AND password = '$password'";
-
+    $query = "SELECT id, username, password FROM users WHERE username ='$username' AND password = '$password'";
     $return = $dbh->query($query);
 
     //print_r($return->errorInfo());
 
 
     $row = $return->fetch(PDO::FETCH_ASSOC);
+     
     
     if (empty($row)) {
 
@@ -24,8 +23,7 @@
         
         $_SESSION['username'] = $row['username'];
         $_SESSION['password'] = $row['password'];
-
-        header("location:index.php");
+        header("location:../views/loggedIn.php");
     }
 
 
