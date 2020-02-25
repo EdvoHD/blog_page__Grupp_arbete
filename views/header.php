@@ -27,10 +27,8 @@ if(empty($_SESSION['username'])) {
     echo "<a href='index.php?page=login'>Logga in</a>";
 }
 else {
-    echo "<a href='handlers/logout.php'>Logga ut</a> <br/>";
-    echo "Välkommen $loggedInUser!";
+    echo "<a href='handlers/logout.php'>Logga ut</a>";
 }
 
 ?>
 <!-- <a href="index.php">Start</a> | <a href="views/about.php">Om oss</a> | <a href="views/loginForm.php">Logga in</a> -->
-<hr />

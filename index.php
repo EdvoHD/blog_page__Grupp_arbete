@@ -12,7 +12,6 @@ $title = "PHP-sidan | Start";
 include("views/header.php");
 ?>
 
-<p>Hej och välkommen hit! :)</p>
 
 <?php
 
@@ -26,6 +25,10 @@ if($page == "about") {
 }
  else if($page == "signup") {
     include("views/signupForm.php");
+}
+ else if($page == "error") {
+     echo "Incorrect username or passsword";
+    include("views/loginForm.php");
 }
 
 ?>

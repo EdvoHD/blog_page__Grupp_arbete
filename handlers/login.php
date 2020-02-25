@@ -1,5 +1,16 @@
 <?php
     include("../db/db.php");
+
+
+    if(isset($_SESSION['username'])) {
+        echo "You are logged in you stoopid!";
+    } else {
+        echo " OOH YOU'RE NOT LOGGED IN STOOOPID!";
+    }
+
+
+
+
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
@@ -14,7 +25,7 @@
     
     if (empty($row)) {
 
-        header("location:index.php?err=true");
+        header("location:../index.php?page=error");
         echo "du kan inte logga in!";
 
     } else {
