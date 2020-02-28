@@ -1,15 +1,29 @@
+<head>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
 <?php
     session_start();
     $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
     if(empty($_SESSION['username'])) {
         echo "Var vänlig att registrera för att kunna se inläggen!";
+        include("views/header.php");
     }
     else {
-        echo "Välkommen $loggedInUser!";
+        $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
+
+        if(isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
+    
+            // ADMIN
+            include("views/adminLoggedIn.php");
+        } else {
+    
+            // USER
+            include("views/userLoggedIn.php");
+        }
     }
 
-$title = "PHP-sidan | Start";
-include("views/header.php");
+    $title = "PHP-sidan | Start";
 ?>
 
 

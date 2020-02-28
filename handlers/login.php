@@ -14,7 +14,7 @@
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    $query = "SELECT id, username, password FROM users WHERE username ='$username' AND password = '$password'";
+    $query = "SELECT id, username, password, role FROM users WHERE username ='$username' AND password = '$password'";
     $return = $dbh->query($query);
 
     //print_r($return->errorInfo());
@@ -34,6 +34,7 @@
         
         $_SESSION['username'] = $row['username'];
         $_SESSION['password'] = $row['password'];
+        $_SESSION['role'] = $row['role'];
         header("location:../views/loggedIn.php");
     }
 
