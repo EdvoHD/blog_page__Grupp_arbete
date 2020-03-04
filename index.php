@@ -10,20 +10,23 @@
         include("views/header.php");
     }
     else {
-        $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
-
         if(isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
     
             // ADMIN
             include("views/adminLoggedIn.php");
+                // Lägg in flödet
+            include("views/flow.php");
         } else {
     
             // USER
             include("views/userLoggedIn.php");
+                // Lägg in flödet
+            include("views/flow.php");
         }
     }
 
-    $title = "PHP-sidan | Start";
+
+
 ?>
 
 
@@ -39,6 +42,12 @@ if($page == "about") {
 }
  else if($page == "signup") {
     include("views/signupForm.php");
+}
+ else if($page == "flow") {
+    include("views/flow.php");
+}
+ else if($page == "admin_panel") {
+    include("views/admin_panel.php");
 }
  else if($page == "error") {
      echo "Incorrect username or passsword";

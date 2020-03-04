@@ -19,7 +19,7 @@
 <body>
 <h1>PHP-sidan!</h1>
 
-<a href="index.php">Start</a> | <a href="index.php?page=about">Om oss</a> 
+<a href="index.php">Flöde</a> | <a href="index.php?page=about">Om oss</a> 
 <?php
 
 $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');

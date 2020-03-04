@@ -114,3 +114,11 @@ a {
 #signupForm .cta-btn:active {
     transform: scale(0.95);
 }
+
+#admin-view {
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
