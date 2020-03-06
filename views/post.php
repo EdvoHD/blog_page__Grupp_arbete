@@ -10,7 +10,9 @@
 <?php
 include("../db/db.php");
 
-    $post_query = "SELECT id, title, content, image,category, created FROM posts WHERE id={$_GET['id']}";
+session_start();
+
+    $post_query = "SELECT id, title, content, image, category, created FROM posts WHERE id={$_GET['id']}";
     $result = $dbh->query($post_query);
 
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
@@ -24,31 +26,29 @@ include("../db/db.php");
         echo "</p>";
     }
 
-    $comment_query = "SELECT id, postId, userId, comment FROM comments WHERE postId={$_GET['id']}";
+    $comment_query = "SELECT id, content, created, postId, userId FROM comments WHERE postId={$_GET['id']}";
+    //$comment_query = "SELECT comments.id, comments.content, created, postId, userId FROM comments JOIN users on users.id = comments.usersID WHERE postId= $post_id ORDER BY date $this->order WHERE postId={$_GET['id']}";
+    //$carl_query = "SELECT comments.id, content, date, postID, userId, users.username FORM comments JOIN users on users.id = comments.userID WHERE postID = $post_id ORDER BY date $this->order";
     $result = $dbh->query($comment_query);
 
     if($result != false) {
 
         foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
-            echo "<pre>";
-            print_r($post);
-
-
-
-            echo "</pre>";
+            echo "<div class='testvin'>" . $post['userId'];
+            echo $post['content'];
+            echo "</div>";
         }
 
     } else {
         echo "error!";
     }
 
-    session_start();
 
 ?>
 
 <form method="POST" action="../handlers/create_comment.php?post_id=<?php echo $_GET['id']; ?>">
 Kommentar:<br />
-<textarea rows="20" cols="200" name="comment_to_save"></textarea><br />
+<textarea rows="20" cols="200" name="content"></textarea><br />
 <input type="submit" value="Posta din kommentar!" />
 </form>
 
