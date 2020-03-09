@@ -9,6 +9,14 @@
             har du ett konto? 
             <a href="index.php?page=login">Logga in här!</a>
         </p>
+        <div class="signup-error" style="color: red; padding: 1rem 0; font-weight:800;">
+        <?php
+        $error = (isset($_GET['error']) ? $_GET['error'] : '');
+            if ($error == true) {
+                echo "Användarnamnet är redan taget!";
+            }
+        ?>
+        </div>
     </div>
     <form action="handlers/signup.php" method="POST">
         <div class="form-container">

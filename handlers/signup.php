@@ -2,6 +2,12 @@
 
     include("../db/db.php");
 
+    if ($errors == true) {
+        $errors == false;
+        header("location:../index.php?page=signup");
+        die();
+    }
+
     $username = (!empty($_POST['username']) ? $_POST['username'] : "");
     $email    = (!empty($_POST['email']) ? $_POST['email'] : "");
     $password = (!empty($_POST['password']) ? md5($_POST['password']) : "");
@@ -44,15 +50,16 @@
         if(!$return) {
             print_r($dbh->errorInfo());
         } else {
-            header("location:../index.php?page=login");
+            header("location:../index.php?page=login&register=success");
         }
     }
 
 // flyttat ned
 
     if($errors == true) {
+
         echo $errorMessages;
-        echo '<a href="../index.php?page=signup">Gå tillbaka</a>';
+        header("location:../index.php?page=signup&error=true");
         die();
     }
 ?>

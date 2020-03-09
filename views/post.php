@@ -5,7 +5,9 @@
 </head>
 <body>
 
-<h1>Bloggsidan!</h1>
+    <div class="back-btn">
+        <a href="../index.php">Gå tillbaka</a>
+    </div>
 
 <?php
 include("../db/db.php");
@@ -17,21 +19,21 @@ session_start();
     $result = $dbh->query($post_query);
 
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
-       // echo "<p>";
+        echo "<p>";
 
         //echo "<h1>{$post['title']} | {$post['created']}</h1>";
         //echo "<h3>". utf8_encode($post['content']) ."</h3>";
 
-        // echo "<b>Name:</b> " . $post['title'] . "<br />";
-        // echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
-        // echo "<b>Posted:</b> " . $post['created'] . "<br />";
+         echo "<b>Name:</b> " . $post['title'] . "<br />";
+         echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
+         echo "<b>Posted:</b> " . $post['created'] . "<br />";
         echo "<a href=\"handlePost.php?action=delete&id=" . $post['id'] . "\">Delete!</a>";
         echo " | ";
         echo "<a href=\"handlePost.php?action=edit&id=" . $post['id'] . "\">Edit!</a>";
         echo "<hr />";
 
 
-       // echo "</p>";
+        echo "</p>";
     }
 
     //$comment_query = "SELECT id, content, created, postId, userId FROM comments WHERE postId={$_GET['id']}";
@@ -46,7 +48,9 @@ $ank_query = "SELECT comments.id, content, comments.created, postId, userId, use
         foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
             echo "<div class='testvin'>" . $post['username'] . ": ";
             echo "<span>" . $post['content'] . "</span>";
-            echo "</div>";
+            echo "<form action='../handlers/delete_comment.php?post_id=". $post['postId'] . "&comment_id=" . $post['id']. "'method='POST'>";
+            echo "<input type='submit' class='delete-btn' value='X'/>";
+            echo "</form></div>";
         }
 
     } else {

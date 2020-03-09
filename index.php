@@ -53,7 +53,14 @@ if($page == "about") {
     include("views/loginForm.php");
 }
 
+$registerState = (isset($_GET['register']) ? $_GET['register'] : '');
+
+if ($registerState == "success") {
+    echo "Registeringen lyckades!";
+}
+
 ?>
+
 
 
 <?php
