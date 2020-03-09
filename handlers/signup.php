@@ -25,26 +25,34 @@
         $errors = true;
     }
 
+ 
+    $query = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password');";
+    
+// checkar användarnamnet
+    
+    $chk = "SELECT Username FROM users WHERE Username='$username';";
+    $chk_res = $dbh->query($chk);
+    $count = count($chk_res->fetchAll());
+    if($count > 0){
+        $errorMessages .= "användarnamnet finns redan <br />";
+        $errors = true;
+    } else {
+        $return = $dbh->exec($query);
+        if($return) {
+            print_r($return);
+        }
+        if(!$return) {
+            print_r($dbh->errorInfo());
+        } else {
+            header("location:../index.php?page=login");
+        }
+    }
+
+// flyttat ned
+
     if($errors == true) {
         echo $errorMessages;
-        echo '<a href="index.php">Gå tillbaka</a>';
+        echo '<a href="../index.php?page=signup">Gå tillbaka</a>';
         die();
     }
-
-
-
-    $query = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password');";
-    $return = $dbh->exec($query);
-
-    if($return) {
-        print_r($return);
-    }
-    
-    if(!$return) {
-        print_r($dbh->errorInfo());
-    } else {
-        header("location:../index.php?page=login");
-    }
-
-
 ?>
