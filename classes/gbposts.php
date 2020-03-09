@@ -1,41 +1,29 @@
-<?php 
+<?php
+class GBPost {
+    private $databaseHandler;
+    //private $order = "desc";
+    private $posts;
 
-class GBPosts {
-    private $id;
-    private $title;
-    private $content;
-    private $image;
-    private $category;
-    private $created;
-
+    public function __construct($dbh) {
         
-    function __construct($id, $title, $content, $image, $category, $created) {
-        $this->id = $id;
-        $this->title = $title;
-        $this->content = $content;
-        $this->image = $image;
-        $this->category = $category;
-        $this->created = $created;
+        $this->databaseHandler = $dbh;
+
     }
 
-    function allProducts() {
-        echo "<h2 style='margin-top:32px; margin-bottom:0; padding:0;'>$this->name</h2> <br />";
-        echo "<span>Pris: $this->price</span> <br />";
-        echo "<span>Kategori: $this->category</span> <br />";
-        echo "<span>Id: $this->articleId</span> <br />";
-        echo "<span>Beskrivning: $this->description</span> <hr />";
-        //echo "$this->name, $this->price, $this->category, $this->articleId, $this->description <br />";
+    public function fetchAll() {
+        $flow_query = "SELECT id, title, content, image, category, created FROM posts";
+        //$query = "SELECT id, title, content, created FROM messages ORDER BY date_posted $this->order";
+
+        $return_array = $this->databaseHandler->query($flow_query);
+        $return_array = $return_array->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->posts = $return_array;
     }
+
+    public function getPosts() {
+        return $this->posts;
+    }
+
 
 }
-/*
-$ProductOne = new Product("Jordnötssmör", 199, "livsmedel", 1, "Go och krämig");
-$ProductTwo = new Product("Nötsmörsjordnöt", 599, "livsmedel", 2, "Rätt så äckligt");
-$ProductThree = new Product("Hammare", 215, "verktyg", 3, "Hantverkares bästa vän!");
-
-$ProductOne->allProducts();
-$ProductTwo->allProducts();
-$ProductThree->allProducts();
-*/
-
 ?>
