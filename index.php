@@ -6,7 +6,7 @@
     session_start();
     $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
     if(empty($_SESSION['username'])) {
-        echo "Var vänlig att registrera för att kunna se inläggen!";
+        echo "Please register to view the posts & comments!";
         include("views/header.php");
     }
     else {
@@ -56,7 +56,7 @@ if($page == "about") {
 $registerState = (isset($_GET['register']) ? $_GET['register'] : '');
 
 if ($registerState == "success") {
-    echo "Registeringen lyckades!";
+    echo "Registration successful!";
 }
 
 ?>

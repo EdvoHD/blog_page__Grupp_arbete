@@ -24,12 +24,12 @@ session_start();
         //echo "<h1>{$post['title']} | {$post['created']}</h1>";
         //echo "<h3>". utf8_encode($post['content']) ."</h3>";
 
-         echo "<b>Name:</b> " . $post['title'] . "<br />";
-         echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
-         echo "<b>Posted:</b> " . $post['created'] . "<br />";
-        echo "<a href=\"handlePost.php?action=delete&id=" . $post['id'] . "\">Delete!</a>";
+        echo "<b>Name:</b> " . $post['title'] . "<br />";
+        echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
+        echo "<b>Posted:</b> " . $post['created'] . "<br />";
+        echo "<a href=\"../handlers/delete_post.php?post_id=" . $post['id'] . "\">Delete!</a>";
         echo " | ";
-        echo "<a href=\"handlePost.php?action=edit&id=" . $post['id'] . "\">Edit!</a>";
+        echo "<a href=\"edit_postForm.php?post_id=" . $post['id'] . "\">Edit!</a>";
         echo "<hr />";
 
 
@@ -49,7 +49,10 @@ $ank_query = "SELECT comments.id, content, comments.created, postId, userId, use
             echo "<div class='testvin'>" . $post['username'] . ": ";
             echo "<span>" . $post['content'] . "</span>";
             echo "<form action='../handlers/delete_comment.php?post_id=". $post['postId'] . "&comment_id=" . $post['id']. "'method='POST'>";
+           
+            if ($post['username'] == $_SESSION['username'] || $_SESSION['role'] == "admin") {
             echo "<input type='submit' class='delete-btn' value='X'/>";
+           } 
             echo "</form></div>";
         }
 

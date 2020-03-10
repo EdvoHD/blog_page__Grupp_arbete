@@ -2,6 +2,7 @@
 
     include("../db/db.php");
 
+    // failsafe
     if ($errors == true) {
         $errors == false;
         header("location:../index.php?page=signup");

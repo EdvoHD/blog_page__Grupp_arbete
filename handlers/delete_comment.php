@@ -1,14 +1,10 @@
 <?php
-
+    // Tar bort enstaka kommentar som matchar med id ifrån post
     include("../db/db.php");
     session_start();
 
-
     $postID = $_GET['post_id'];
     $commentID = $_GET['comment_id'];
-
-    echo "$postID <br />";
-    echo "$commentID<br />";
 
     $query = "DELETE FROM comments WHERE id = $commentID";
     $return = $dbh->exec($query);
@@ -21,7 +17,6 @@
     } else {
         echo "fuck yeah, det lirade!";
         header("Location: ../views/post.php?id=$postID");
-        //header("location:../index.php?page=login&register=success");
     }
 
 ?>
