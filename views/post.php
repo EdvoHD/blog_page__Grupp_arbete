@@ -1,12 +1,15 @@
 <!doctype html>
 <html>
 <head>
-<title>Bloggsidan!</title>
+    <title>Bloggsidan!</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+    <div class="post-wrapper">
+        
 
     <div class="back-btn">
-        <a href="../index.php">Gå tillbaka</a>
+        <a href="../index.php"> <- Gå tillbaka</a>
     </div>
 
 <?php
@@ -19,21 +22,19 @@ session_start();
     $result = $dbh->query($post_query);
 
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
-        echo "<p>";
-
-        //echo "<h1>{$post['title']} | {$post['created']}</h1>";
-        //echo "<h3>". utf8_encode($post['content']) ."</h3>";
-
-        echo "<b>Name:</b> " . $post['title'] . "<br />";
-        echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
-        echo "<b>Posted:</b> " . $post['created'] . "<br />";
+        echo "<div class='post-buttons'>";
         echo "<a href=\"../handlers/delete_post.php?post_id=" . $post['id'] . "\">Delete!</a>";
-        echo " | ";
         echo "<a href=\"edit_postForm.php?post_id=" . $post['id'] . "\">Edit!</a>";
-        echo "<hr />";
+        echo "</div>";
+        echo "<div class='post-container'>";
 
+        echo "<h1> " . $post['title'] . "<span class='post-created'> " . $post['created'] . " </span> </h1>";
+        echo "<p>" . $post['content'] . "</p>";
 
-        echo "</p>";
+        echo "</div>";
+
+        echo "<div class='comment-section'>";
+        echo "<h2> Comments </h2>";
     }
 
     //$comment_query = "SELECT id, content, created, postId, userId FROM comments WHERE postId={$_GET['id']}";
@@ -46,9 +47,9 @@ $ank_query = "SELECT comments.id, content, comments.created, postId, userId, use
     if($result != false) {
 
         foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
-            echo "<div class='testvin'>" . $post['username'] . ": ";
-            echo "<span>" . $post['content'] . "</span>";
-            echo "<form action='../handlers/delete_comment.php?post_id=". $post['postId'] . "&comment_id=" . $post['id']. "'method='POST'>";
+            echo "<div class='comment-container'><p class='comment-username'>" . $post['username'] . ":</p> ";
+            echo "<p class='comment-content'>" . $post['content'] . "</p>";
+            echo "<form class='delete-comment-container' action='../handlers/delete_comment.php?post_id=". $post['postId'] . "&comment_id=" . $post['id']. "'method='POST'>";
            
             if ($post['username'] == $_SESSION['username'] || $_SESSION['role'] == "admin") {
             echo "<input type='submit' class='delete-btn' value='X'/>";
@@ -60,17 +61,17 @@ $ank_query = "SELECT comments.id, content, comments.created, postId, userId, use
         echo "error!";
     }
 
+    echo "</div>"; // slut på comment-section
+
 
 ?>
 
-<form method="POST" action="../handlers/create_comment.php?post_id=<?php echo $_GET['id']; ?>">
-Kommentar:<br />
-<textarea rows="20" cols="200" name="content"></textarea><br />
-<input type="submit" value="Posta din kommentar!" />
-</form>
+    <form method="POST" action="../handlers/create_comment.php?post_id=<?php echo $_GET['id']; ?>">
+    Kommentar:<br />
+    <textarea rows="20" cols="200" name="content"></textarea><br />
+    <input type="submit" value="Posta din kommentar!" />
+    </form>
 
-
-
-
+    </div>
 </body>
 </html>

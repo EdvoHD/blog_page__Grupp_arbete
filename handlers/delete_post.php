@@ -18,14 +18,14 @@
         $remove_comments = "DELETE FROM comments WHERE postId = $postID";
         $result = $dbh->exec($remove_comments);
 
+        // Checkar ifall den är tom efter första processen
         if ($count > 0) {
             $remove_post = "DELETE FROM posts WHERE id = $postID";
             $result = $dbh->exec($remove_post);
         }
-
+        // Skickar en till index.php så man inte är kvar på posten som precis tagits bort.
         header("location:../index.php");
 
-        // Lägg till en till if sats som ser till att ta bort post efter man har tagit bort alla kommentarer
         
     } else {
 
@@ -34,26 +34,5 @@
         $remove_post = "";
 
     }
-
-    //$testvin = $result->fetchAll(PDO::FETCH_ASSOC);
-     
-    /*
-    if (empty($row)) {
-        echo "hoppsan! Den var tom.";
-
-    } else {
-        // echo $row['postId'];
-        // header("location:../views/loggedIn.php");
-    }
-
-    */
-    // $ank_query = "SELECT comments.id, content, comments.created, postId, userId, users.username FROM comments JOIN users on users.id = comments.userId WHERE postId = {$_GET['id']}";
-
-
-    // Ta bort alla kommentarer innan man tar bort posten
-
-
-    // Ta bort posten
-
 
 ?>

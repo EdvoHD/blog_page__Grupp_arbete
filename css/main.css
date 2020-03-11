@@ -13,6 +13,11 @@ body {
 a {
     color: #29E7a7;
     font-weight: 700;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 1px solid #29E7a7;
 }
 
 /* FÄRGER */ 
@@ -121,4 +126,109 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* FLOW */ 
+
+.flow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.flow-row {
+    margin: 1rem 0;
+    width: 60%;
+    padding: 2rem 1rem;
+    transition: all .2s ease;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px 2px #00000047;
+}
+
+.flow-row:hover {
+    border-bottom: none;
+}
+
+.flow-row:hover {
+    transform: scale(1.05);
+}
+
+/* posts & comments */ 
+
+.post-wrapper {
+    background: #f3f3f3;
+}
+
+.comment-section {
+    margin: 0 1rem;
+}
+
+.back-btn {
+    margin: .5rem 0;
+    font-style: italic;
+    font-weight: 900;
+    text-transform: lowercase;
+}
+
+.post-container {
+    padding: 1rem 0 2rem 0;
+}
+
+.post-container h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.post-container p { /* content */ 
+    border-top: solid 2px #7840BD;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.post-created {
+    font-size: 1rem;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.post-buttons {
+
+}
+
+.post-buttons a {
+    margin: 0 .2rem;
+}
+
+.comment-container {
+    margin: 2rem 0;
+    position: relative;
+    padding: 2rem .5rem; 
+    background: #fff;
+    /* box-shadow: 0px 2px 6px 2px #00000047; */
+}
+
+.comment-username {
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.delete-comment-container {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.delete-comment-container .delete-btn {
+    border: solid 2px red;
+    padding: .5rem;
+    font-size: 1rem;
+    font-weight: 900;
 }

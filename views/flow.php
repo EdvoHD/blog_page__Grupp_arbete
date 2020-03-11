@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
-<div>
+<div class="flow-container">
     <?php
 
     include("db/db.php");
@@ -25,9 +25,7 @@
    
     foreach( $Posts->getPosts() as $post ) {
 
-        echo "<br /><p>";
-        echo "<h1><a href='views/post.php?id={$post['id']}'>{$post['title']} | {$post['created']}</a></h1>";
-        echo "</p><br />";
+        echo "<a class='flow-row' href='views/post.php?id={$post['id']}'>{$post['title']}</a>";
     }
 
     ?>
