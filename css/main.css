@@ -7,7 +7,7 @@
 
 body {
     font-size: 16px;
-    font-family: 'Montserrat', ;
+    font-family: 'Montserrat';
 }
 
 a {
@@ -160,6 +160,7 @@ a:hover {
 
 .post-wrapper {
     background: #f3f3f3;
+    padding: 0 0.5rem;
 }
 
 .comment-section {
