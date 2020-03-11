@@ -27,11 +27,16 @@ session_start();
          echo "<b>Name:</b> " . $post['title'] . "<br />";
          echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
          echo "<b>Posted:</b> " . $post['created'] . "<br />";
+
+        
+         //Ändrat så bara admin kan edita och deleta
+
+        if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
         echo "<a href=\"handlePost.php?action=delete&id=" . $post['id'] . "\">Delete!</a>";
         echo " | ";
-        echo "<a href=\"handlePost.php?action=edit&id=" . $post['id'] . "\">Edit!</a>";
+        echo "<a href=\"edit_postForm.php?post_id=" . $post['id'] . "\">Edit!</a>";
         echo "<hr />";
-
+        }
 
         echo "</p>";
     }
@@ -39,7 +44,7 @@ session_start();
     //$comment_query = "SELECT id, content, created, postId, userId FROM comments WHERE postId={$_GET['id']}";
     //$comment_query = "SELECT comments.id, comments.content, created, postId, userId FROM comments JOIN users on users.id = comments.usersID WHERE postId= $post_id ORDER BY date $this->order WHERE postId={$_GET['id']}";
     //$carl_query = "SELECT comments.id, content, date, postId, userId, users.username FROM comments JOIN users on users.id = comments.userId WHERE postId={$_GET['id']}";
-$ank_query = "SELECT comments.id, content, comments.created, postId, userId, users.username FROM comments JOIN users on users.id = comments.userId WHERE postId = {$_GET['id']}";
+    $ank_query = "SELECT comments.id, content, comments.created, postId, userId, users.username FROM comments JOIN users on users.id = comments.userId WHERE postId = {$_GET['id']}";
     // /* ORDER BY date $this->order */ 
     $result = $dbh->query($ank_query);
 
