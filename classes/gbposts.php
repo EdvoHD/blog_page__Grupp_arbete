@@ -16,7 +16,6 @@ class GBPost {
 
         $return_array = $this->databaseHandler->query($flow_query);
         $return_array = $return_array->fetchAll(PDO::FETCH_ASSOC);
-
         $this->posts = $return_array;
     }
 
