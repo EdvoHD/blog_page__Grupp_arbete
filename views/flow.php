@@ -25,11 +25,11 @@
 
     while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
         echo "<a class='flow-row' href='views/post.php?id={$row['id']}'>";
-        echo "<b>Name:</b> " . $row['title'] . "<br />";
-        echo "<b>Message:</b><br /> " . $row['content'] . "<br />";
-        echo "<b>Posted:</b> " . $row['created'] . "<br />";
+        echo "<div class=''>";
+        echo "<h2>" . $row['title'] . "</h2>";
+        echo "<p class='flow-post-created'>" . $row['created'] . "</p>";
 
-        echo "</a>";
+        echo "</div></a>";
     }
 
     
