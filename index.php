@@ -6,8 +6,8 @@
     session_start();
     $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
     if(empty($_SESSION['username'])) {
-        echo "Please register to view the posts & comments!";
         include("views/header.php");
+        echo "<p>Please register to view the posts & comments!</p>";
     }
     else {
         if(isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
