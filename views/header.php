@@ -12,7 +12,7 @@
 <body>
 <h1>Welcome!</h1>
 
-<a href="index.php">Feed</a> | <a href="index.php?page=about">About us</a> 
+<a href="index.php">Feed</a> | <a href="index.php?page=about">About us</a> |
 <?php
 
 $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');

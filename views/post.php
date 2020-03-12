@@ -9,7 +9,7 @@
         
 
     <div class="back-btn">
-        <a href="../index.php"> <- Gå tillbaka</a>
+        <a href="../index.php"> <- Go back</a>
     </div>
 
 <?php
@@ -23,8 +23,13 @@ session_start();
 
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
         echo "<div class='post-buttons'>";
-        echo "<a href=\"../handlers/delete_post.php?post_id=" . $post['id'] . "\">Delete!</a>";
-        echo "<a href=\"edit_postForm.php?post_id=" . $post['id'] . "\">Edit!</a>";
+         //Ändrat så bara admin kan edita och deleta
+
+         if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
+                echo "<a href=\"../handlers/delete_post.php?action=delete&post_id=" . $post['id'] . "\">Delete!</a>";
+                echo " | ";
+                echo "<a href=\"edit_postForm.php?post_id=" . $post['id'] . "\">Edit!</a>";
+            }
         echo "</div>";
         echo "<div class='post-container'>";
 
@@ -37,21 +42,18 @@ session_start();
         echo "</div>";
 
         echo "<div class='comment-section'>";
+<<<<<<< HEAD
         echo "<h2> Comments </h2>";
          echo "<b>Name:</b> " . $post['title'] . "<br />";
          echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
          echo "<b>Posted:</b> " . $post['created'] . "<br />";
          
 
+=======
+        echo "<h2 class='comment-title'> Comments </h2>";
+>>>>>>> 3e0af7293533ed3fa8be4c0f4166d69534d83d93
         
-         //Ändrat så bara admin kan edita och deleta
 
-        if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
-        echo "<a href=\"handlePost.php?action=delete&id=" . $post['id'] . "\">Delete!</a>";
-        echo " | ";
-        echo "<a href=\"edit_postForm.php?post_id=" . $post['id'] . "\">Edit!</a>";
-        echo "<hr />";
-        }
 
         echo "</p>";
     }
@@ -85,10 +87,10 @@ session_start();
 
 ?>
 
-    <form method="POST" action="../handlers/create_comment.php?post_id=<?php echo $_GET['id']; ?>">
-    Kommentar:<br />
-    <textarea rows="20" cols="200" name="content"></textarea><br />
-    <input type="submit" value="Posta din kommentar!" />
+    <form class="comment-form" method="POST" action="../handlers/create_comment.php?post_id=<?php echo $_GET['id']; ?>">
+    <h4>Create a comment:</h4>
+    <textarea rows="5" cols="50" name="content" placeholder="write your comment.."></textarea><br />
+    <input class='cta-btn' type="submit" value="Comment!" />
     </form>
 
     </div>

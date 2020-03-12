@@ -1,19 +1,14 @@
-<head>
-    <link rel="stylesheet" href="../css/main.css">
-</head>
-
+<a href='index.php'>Feed</a> |
+<a href='index.php?page=about'>About us</a> |
+<a href='handlers/logout.php'>Logout</a>
 
 <?php
-    echo "Välkommen $loggedInUser!";
+
+    $roleCheck = $_SESSION['role'];
+
+    echo "<p>Welcome $loggedInUser!</p>";
+    echo "<span class='role-check'>role: $roleCheck</span>";
 ?>
 
-<a href='index.php'>Flöde</a> |
-<a href='index.php?page=about'>Om oss</a> |
-<a href='handlers/logout.php'>Logga ut</a> |
-
-
-<div>
-    <marquee scrollamount='30'>
-        <h1>DU ÄR INLOGGAD!</h1>
-    </marquee>
+<div id="user-view">
 </div>
