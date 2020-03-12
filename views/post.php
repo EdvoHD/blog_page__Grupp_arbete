@@ -35,10 +35,19 @@ session_start();
 
         echo "<h1> " . $post['title'] . "<span class='post-created'> " . $post['created'] . " </span> </h1>";
         echo "<p>" . $post['content'] . "</p>";
+        $img = $post['image'];
+        $imgAlt = $post['title'];
+        echo "<img src='../images/$img' alt='$imgAlt' height='300' width='auto'>";
 
         echo "</div>";
 
         echo "<div class='comment-section'>";
+        echo "<h2> Comments </h2>";
+         echo "<b>Name:</b> " . $post['title'] . "<br />";
+         echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
+         echo "<b>Posted:</b> " . $post['created'] . "<br />";
+         
+
         echo "<h2 class='comment-title'> Comments </h2>";
         
 

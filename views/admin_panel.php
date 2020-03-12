@@ -9,7 +9,7 @@
             <option value="3">kategori 3</option>
             <option value="4">kategori 4</option>
         </select>
-        <input type="file" name="imageToUpload" required> <!-- gör om till "choose file from directory" --> 
+        <input type="file" name="file" required> <!-- gör om till "choose file from directory" --> 
         <input type="submit" value="Skapa Inlägg">
     </form>
 </div>
