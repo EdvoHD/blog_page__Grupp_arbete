@@ -37,9 +37,8 @@ if(empty($_SESSION['username'])) {
     echo "</div>";
 }
 else {
-    echo "<a class='' href='handlers/logout.php'>Logout</a>";
+    echo "<a style='color:#f74f43;' href='handlers/logout.php'>Logout</a>";
     echo "</div>";
 }
 echo "</div></div>"; /* stänger navbar */
 ?>
-<!-- <a href="index.php">Start</a> | <a href="views/about.php">Om oss</a> | <a href="views/loginForm.php">Logga in</a> -->

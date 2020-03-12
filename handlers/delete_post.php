@@ -31,7 +31,9 @@
 
         // Ta bort posts
         echo "ITS EMPTY";
-        $remove_post = "";
+        $remove_post = "DELETE FROM posts wHERE id = $postID";
+        $result = $dbh->exec($remove_post);
+        header("location:../index.php");
 
     }
 

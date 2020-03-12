@@ -3,23 +3,20 @@
     <link rel="stylesheet" href="css/tobiascss.css">
 </head>
 
-<div id="app">
+
 
 
 <?php
     session_start();
+    $page = (isset($_GET['page']) ? $_GET['page'] : '');
+
 
 $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
 if(empty($_SESSION['username'])) {
     include("views/header.php");
 
-    if(empty($_SESSION['role'])) {
-        echo "<p class='register-notice'>Please login to view the posts & comments!</p>";
-    }else {
-        $roleCheck = $_SESSION['role'];
-        echo "<p>Welcome $loggedInUser!</p>";
-        echo "<span class='role-check'> $roleCheck</span>";
-    }
+    echo "<div id='app'>";
+        echo "<h2 class='register-notice'>Please login to see posts</h2>";
 
 }
 else {
@@ -27,14 +24,14 @@ else {
 
         // ADMIN
         include("views/header.php");
-        include("views/adminLoggedIn.php");
+        echo "<div id='app'>";
             // Lägg in flödet
         include("views/flow.php");
     } else {
 
         // USER
         include("views/header.php");
-        include("views/userLoggedIn.php");
+        echo "<div id='app'>";
             // Lägg in flödet
         include("views/flow.php");
     }
@@ -44,7 +41,6 @@ else {
 
 
 
-$page = (isset($_GET['page']) ? $_GET['page'] : '');
 
 if($page == "about") {
     include("views/about.php");
@@ -77,8 +73,5 @@ if ($registerState == "success") {
 
 ?>
 
-</div> <!-- #app close -->
+</div> <!-- app closes -->
 
-<?php
-include("views/footer.php");
-?>

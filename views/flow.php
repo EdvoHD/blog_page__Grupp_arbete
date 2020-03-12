@@ -10,6 +10,8 @@
     include("db/db.php");
     include("classes/gbposts.php");
 
+
+
     /*
     $flow_query = "SELECT id, title, content, image, category, created FROM posts";
     $result = $dbh->query($flow_query);
