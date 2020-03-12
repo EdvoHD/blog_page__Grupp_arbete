@@ -29,6 +29,60 @@ a:hover {
 #29E7A7
 */
 
+/* Navbar */ 
+
+.navbar {
+    width: 100%;
+    position: relative;
+}
+
+.navbar-container {
+    height: 80px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar-container a {
+    padding: 0 .4rem;
+    /* border-right: solid 2px #000; */
+}
+
+.nav-items {
+    font-size: 1.5rem;
+}
+
+.nav-login {
+    display: flex;
+}
+
+.nav-login .navbar-input {
+    border: none;
+    padding: .2rem;
+    background: none;
+    border-bottom: solid 2px #29E7a7;
+}
+
+.nav-login .navbar-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: .2rem .8rem;
+    color: #29E7a7;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Signup & register */ 
+
+.register-notice {
+    font-size: .6rem;
+    opacity: 0.5;
+    font-style: italic;
+}
+
 #signupForm {
     margin: 2rem auto;
     display: flex;
@@ -134,23 +188,51 @@ a:hover {
 /* FLOW */ 
 
 .flow-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin: 4rem 0;
+    /* margin: 4rem 0; */ 
+    background-image: url("background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem 0;
+}
+
+.bg-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.flow-item {
+
 }
 
 .flow-row {
     margin: 1rem 0;
-    width: 60%;
+    width: 512px;
+    /* height: 612px; */
     padding: 2rem 1rem;
     transition: all .2s ease;
-    text-align: center;
+    text-align: left;
     border-radius: 5px;
-    box-shadow: 0px 2px 6px 2px #00000047;
+    box-shadow: 0px 2px 6px #00000047;
     background: #fff;
+    font-size: 1.5rem;
+    z-index: 2;
+}
+
+.flow-row p.flow-post-created {
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: normal;
+    font-style: italic;
+    opacity: 0.7;
 }
 
 .flow-row:hover {
@@ -159,13 +241,14 @@ a:hover {
 
 .flow-row:hover {
     transform: scale(1.05);
+    box-shadow: 0px 2px 12px #00000047;
 }
 
 /* posts & comments */ 
 
 .post-wrapper {
     background: #f3f3f3;
-    padding: 0 1rem 4rem;
+    padding: 0 8rem 4rem;
 }
 
 .comment-section {

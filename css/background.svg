@@ -1,0 +1,23 @@
+
+<svg width="1440px" height="1024px" viewBox="0 0 1440 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="376" y="0" width="1440" height="1024"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Startsida">
+            <g id="background" transform="translate(-376.000000, 0.000000)">
+                <g>
+                    <use fill="#7840BD" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <rect stroke="#979797" stroke-width="1" x="376.5" y="0.5" width="1439" height="1023"></rect>
+                </g>
+                <polygon id="Triangle" fill="#33105E" points="840.5 247 1305 1024 376 1024"></polygon>
+                <polygon id="Triangle-Copy-4" fill="#482079" points="533 141 1066 1058 0 1058"></polygon>
+                <polygon id="Triangle-Copy" fill="#421F6E" points="1096.5 174 1561 1024 632 1024"></polygon>
+                <polygon id="Triangle-Copy-2" fill="#6433A1" points="1207.5 298 1672 1024 743 1024"></polygon>
+                <polygon id="Triangle-Copy-3" fill="#8A5EC1" points="1645 225 2250 1024 1040 1024"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

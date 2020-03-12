@@ -3,6 +3,8 @@
 </head>
 
 <div class="flow-container">
+    <div class="bg-overlay">
+    </div>
     <?php
 
     include("db/db.php");
@@ -19,13 +21,17 @@
     }
     */
 
+    echo "<div style='z-index:2;'><h2> Feed <h2></div>";
+
     $Posts = new GBPost($dbh);
 
     $Posts->fetchAll();
    
     foreach( $Posts->getPosts() as $post ) {
-
-        echo "<a class='flow-row' href='views/post.php?id={$post['id']}'>{$post['title']}</a>";
+        echo "<a class='flow-row' href='views/post.php?id={$post['id']}'>";
+        echo "<h3>{$post['title']}</h3>";
+        echo "<p class='flow-post-created'>{$post['created']}</p>";
+        echo "</a>";
     }
 
     ?>
