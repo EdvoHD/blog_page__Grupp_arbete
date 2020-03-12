@@ -41,12 +41,12 @@ if(isset($_POST["submit"])) {
     }
 }
 // Om den redan finns
-if (file_exists($target_file)) {
-    echo "Sorry, file already exists." . "<br/>";
-    $uploadOk = 0;
-}
+// if (file_exists($target_file)) {
+//     echo "Sorry, file already exists." . "<br/>";
+//     $uploadOk = 0;
+// }
 // Checkar storlek
-if ($_FILES["file"]["size"] > 500000) {
+if ($_FILES["file"]["size"] > 50000000) {
     echo "Sorry, your file is too large." . "<br/>";
     $uploadOk = 0;
 }

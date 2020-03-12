@@ -21,7 +21,12 @@ session_start();
     $post_query = "SELECT id, title, content, image, category, created FROM posts WHERE id={$_GET['id']}";
     $result = $dbh->query($post_query);
 
+    
+
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
+        $img = $post['image'];
+        $imgAlt = $post['title'];
+
         echo "<div class='post-buttons'>";
          //Ändrat så bara admin kan edita och deleta
 
@@ -34,20 +39,15 @@ session_start();
         echo "<div class='post-container'>";
 
         echo "<h1> " . $post['title'] . "<span class='post-created'> " . $post['created'] . " </span> </h1>";
+        echo "<div class='post-content-container'>";
+        echo "<div class='post-image'><img src='../images/$img' alt='$imgAlt' height='300' width='auto'></div>";
         echo "<p>" . $post['content'] . "</p>";
-        $img = $post['image'];
-        $imgAlt = $post['title'];
-        echo "<img src='../images/$img' alt='$imgAlt' height='300' width='auto'>";
+        echo "</div>";
+
 
         echo "</div>";
 
         echo "<div class='comment-section'>";
-        echo "<h2> Comments </h2>";
-         echo "<b>Name:</b> " . $post['title'] . "<br />";
-         echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
-         echo "<b>Posted:</b> " . $post['created'] . "<br />";
-         
-
         echo "<h2 class='comment-title'> Comments </h2>";
         
 

@@ -4,7 +4,6 @@ include("../db/db.php");
 
 
 $post_id = $_POST['post_id'];
-
 $title   = $_POST['title'];
 $content = $_POST['content'];
 $category = $_POST['category'];

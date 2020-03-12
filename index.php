@@ -1,5 +1,6 @@
 <head>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tobiascss.css">
 </head>
 
 <div id="app">
@@ -11,18 +12,28 @@
 $loggedInUser = (isset($_SESSION['username']) ? $_SESSION['username'] : '');
 if(empty($_SESSION['username'])) {
     include("views/header.php");
-    echo "<p class='register-notice'>Please register to view the posts & comments!</p>";
+
+    if(empty($_SESSION['role'])) {
+        echo "<p class='register-notice'>Please login to view the posts & comments!</p>";
+    }else {
+        $roleCheck = $_SESSION['role'];
+        echo "<p>Welcome $loggedInUser!</p>";
+        echo "<span class='role-check'> $roleCheck</span>";
+    }
+
 }
 else {
     if(isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
 
         // ADMIN
+        include("views/header.php");
         include("views/adminLoggedIn.php");
             // Lägg in flödet
         include("views/flow.php");
     } else {
 
         // USER
+        include("views/header.php");
         include("views/userLoggedIn.php");
             // Lägg in flödet
         include("views/flow.php");
@@ -30,10 +41,16 @@ else {
 }
 
 
+
+
+
 $page = (isset($_GET['page']) ? $_GET['page'] : '');
 
 if($page == "about") {
     include("views/about.php");
+}
+else if($page == "contactForm") {
+    include("views/contactForm.php");
 }
  else if($page == "login") {
     include("views/loginForm.php");

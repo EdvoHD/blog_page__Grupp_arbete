@@ -34,18 +34,18 @@
 <br />
 <b>Uppdatera inlägg #<?php echo $post_id; ?>:</b><br />
 <form action="../handlers/edit_post.php" method="POST">
-<input type="text" name="title" placeholder="Titeln här..." /><br />
-<textarea name="content" rows="10" cols="50">Text content här...</textarea><br />
+<input type="text" name="title" placeholder="title here.." required /><br />
+<textarea name="content" rows="10" cols="50" placeholder="content.." required></textarea><br />
 <select id="" name="category" required>
     <option value="1">kategori 1</option>
     <option value="2">kategori 2</option>
     <option value="3">kategori 3</option>
     <option value="4">kategori 4</option>
 </select>
-<input type="file" name="image" required> <!-- gör om här med -->
+<input type="file" name="image"> <!-- gör om här med -->
 <input type="hidden" name="post_id" value=<?php echo $post_id; ?> /> <!-- <php echo $post_id; ?> -->
 <br/>
-<input type="submit" value="Uppdatera inlägg"/>
+<input type="submit" value="Update"/>
 
 
 </form>
