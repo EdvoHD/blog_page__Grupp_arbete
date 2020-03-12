@@ -38,7 +38,7 @@
                 <p>MESSAGE*</p>
                 <textarea placeholder="Text" name="message"></textarea>
             </div>
-            <button class="contactButton" type="submit" name="submit">SEND MESSAGE</button>
+            <button class="cta-btn" type="submit" name="submit">SEND MESSAGE</button>
         </form>
     </div>
 </div> 
