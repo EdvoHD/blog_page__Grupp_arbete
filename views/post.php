@@ -40,7 +40,7 @@ session_start();
 
         echo "<h1> " . $post['title'] . "<span class='post-created'> " . $post['created'] . " </span> </h1>";
         echo "<div class='post-content-container'>";
-        echo "<div class='post-image'><img src='../images/$img' alt='$imgAlt' height='300' width='auto'></div>";
+        echo "<div class='post-image'><img src='../images/$img' alt='$imgAlt'></div>";
         echo "<p>" . $post['content'] . "</p>";
         echo "</div>";
 
