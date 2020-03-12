@@ -1,0 +1,462 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to right, #00b7ff, rgb(143, 143, 143));
+  font-family: "Poppins";
+  overflow: auto;
+}
+
+/* ===Header=== */
+.headerContainer {
+  background: white;
+  height: 9vh;
+  width: 100%;
+}
+
+.headerContainer img {
+  float: left;
+  height: 9vh;
+  margin-left: 5px;
+}
+
+.navbar {
+  height: 100%;
+  float: left;
+  margin-top: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 25px;
+  margin-left: 30px;
+}
+
+.headerLogin {
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  float: right;
+  justify-content: right;
+  align-content: center;
+}
+
+.headerLogin input {
+  background: none;
+  border: none;
+  border-bottom: solid 1px gray;
+  width: 90%;
+  font-size: 17px;
+  padding: 0 0 0 3px;
+  outline: none;
+  letter-spacing: 0.7px;
+  font-style: italic;
+}
+
+.headerLogin button {
+  background: none;
+  color: rgb(78, 248, 72);
+  border: none;
+  text-decoration: none;
+  font-size: 3.2vh;
+  font-weight: 600;
+  margin-right: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.headerLogin a {
+  color: rgb(88, 88, 88);
+  text-decoration: none;
+  font-size: 3.2vh;
+  font-weight: 600;
+  margin-right: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.loginOutBtn {
+  float: right;
+  margin-top: 2vh;
+}
+
+.loginOutBtn a {
+  color: rgb(78, 248, 72);
+  text-decoration: none;
+  font-size: 3.2vh;
+  font-weight: 600;
+  margin-right: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  align-items: center;
+}
+
+@media screen and (min-width: 1000px) {
+  .loginOutBtn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+
+  .loginOutBtn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .headerLogin {
+    display: none;
+  }
+}
+
+/* Hamburger Menu */
+.hamburgerMenu {
+  position: relative;
+  z-index: 2;
+}
+
+#hamburgerMenuIcon {
+  float: right;
+  width: 7.5vh;
+  height: 9vh;
+  cursor: pointer;
+  padding: 2.5vh 2vh 0 0;
+  position: relative;
+  z-index: 3;
+}
+
+.bar {
+  width: 100%;
+  height: 1vh;
+  background: purple;
+  display: block;
+  border-radius: 1vh;
+  transition: 0.3s ease;
+}
+
+#bar2 {
+  transform: translateY(0.5vh);
+}
+
+#bar3 {
+  transform: translateY(1vh);
+}
+
+.change .bar {
+  background: white;
+}
+
+.change #bar1 {
+  transform: translateY(1vh) rotate(45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-1vh) rotate(-45deg);
+}
+
+.hamburgerNavbar {
+  display: none;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 38%;
+}
+
+.hamburgerNavbar li {
+  list-style: none;
+  padding-bottom: 3vh;
+}
+
+.hamburgerNavbar li a {
+  color: white;
+  text-decoration: none;
+  font-size: 5vh;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.change {
+  display: block;
+}
+
+.hamburgerMenuBackground {
+  z-index: 1;
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: pink;
+  transition: 0.3s ease;
+  margin: 2.5vh 2vh 0 0;
+}
+
+.changeBackground {
+  width: 100%;
+  height: 100%;
+  transform: translate(2vh, -2.5vh);
+}
+
+@media screen and (min-width: 600px) {
+  .hamburgerMenu {
+    display: none;
+  }
+}
+
+/* ===Contact Form=== */
+.contactContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-image: url(../images/background.jpg);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.contactInfoContainer {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20% 0 0 15%;
+  color: white;
+}
+
+.contactInfoContainer i {
+  margin: 2vh 2.5vh 0 0;
+}
+
+.contactInfoContainer h3 {
+  font-size: 4vh;
+  font-weight: 600;
+}
+
+.contactInfoContainer p {
+  margin: 0 0 4vh 4.5vh;
+  color: #ff186d;
+}
+
+#contactInfoAddress {
+  color: #868686;
+}
+
+.contactInfoTitle {
+  display: flex;
+  margin-bottom: 2vh;
+}
+
+.contactFormContainer {
+  background: #f5f5f5;
+}
+
+.contactFormContainer h2 {
+  text-align: center;
+  font-size: 5vh;
+  padding: 2vh 0 2vh 0;
+  color: #2c2c2c;
+  letter-spacing: 0.7px;
+  word-spacing: 3px;
+}
+
+.contactFormContainer p {
+  background: white;
+  width: 100%;
+  border-left: solid 1px rgb(180, 180, 180);
+  border-top: solid 1px rgb(180, 180, 180);
+  border-right: solid 1px rgb(180, 180, 180);
+  padding: 2vh 0 2vh 20px;
+  font-size: 2.5vh;
+  text-align: left;
+  letter-spacing: 0.7px;
+}
+
+.contactFormContainer input {
+  width: 100%;
+  padding: 2vh 0 2vh 20px;
+  font-size: 2.5vh;
+  border: solid 1px rgb(180, 180, 180);
+  margin-bottom: 2vh;
+  letter-spacing: 0.7px;
+  outline: none;
+}
+
+.contactFormContainer textarea {
+  width: 100%;
+  height: 10vh;
+  border: solid 1px rgb(180, 180, 180);
+  font-size: 2.5vh;
+  padding: 2vh 0 0 20px;
+  margin-bottom: 3vh;
+  outline: none;
+  resize: none;
+}
+
+.contactForm {
+  margin: auto;
+  width: 70%;
+  text-align: center;
+}
+
+.contactName {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+#contactLastName {
+  border-left: 0;
+}
+
+.contactButton {
+  background: #ff186d;
+  color: white;
+  width: 45%;
+  font-size: 3vh;
+  font-weight: 500;
+  border: solid 0.5px gray;
+  letter-spacing: 0.4px;
+  word-spacing: 2px;
+  margin-bottom: 2vh;
+  padding: 1vh 0 1vh 0;
+  outline: none;
+}
+
+@media screen and (max-width: 950px) {
+  .contactContainer {
+    display: grid;
+    grid-template-columns: auto;
+    background-position: top;
+    background-size: cover;
+  }
+
+  .contactInfoContainer {
+    padding: 4vh 0 2vh 0;
+    text-align: center;
+    margin: 0;
+  }
+
+  .contactInfoTitle {
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+  }
+
+  .contactInfoContainer h3 {
+    margin: 0;
+  }
+
+  .contactInfoContainer i {
+    margin: 0;
+  }
+
+  .contactInfoContainer p {
+    margin: 0 0 3vh 0;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .contactForm {
+    width: 85%;
+  }
+  .contactButton {
+    width: 65%;
+    white-space: nowrap;
+  }
+}
+
+/* About Page */
+.aboutBanner {
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  height: 50vh;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.aboutContainer {
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  width: 70%;
+  margin: auto;
+  padding: 5vh 0 6vh 0;
+}
+
+.aboutContainer h2 {
+  font-size: 6vh;
+  font-weight: 400;
+  margin-bottom: 2.5vh;
+}
+
+.whoAreWeContiner {
+  background: #f5f5f5;
+  padding-bottom: 4vh;
+}
+
+.whoAreWeContiner h2 {
+  text-align: center;
+  font-size: 5vh;
+  padding: 3vh 0 3vh 0;
+}
+
+.aboutContent {
+  display: grid;
+  width: 85%;
+  grid-template-columns: 21.25% 21.25% 21.25% 21.25%;
+  grid-gap: 5%;
+  margin: auto;
+}
+
+.aboutContent img {
+  max-width: 100%;
+}
+
+.aboutContent hr {
+  border: solid 1px black;
+}
+
+@media screen and (max-width: 950px) {
+  .aboutContent {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .whoAreWeContiner {
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .aboutContent {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+  .aboutContainer {
+    background: rgba(0, 0, 0, 0.45);
+    color: white;
+    width: 100%;
+    margin: auto;
+    padding: 5vh 0 6vh 0;
+  }
+
+  .whoAreWeContiner {
+    overflow: visible;
+  }
+}
