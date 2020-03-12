@@ -30,6 +30,9 @@ session_start();
 
         echo "<h1> " . $post['title'] . "<span class='post-created'> " . $post['created'] . " </span> </h1>";
         echo "<p>" . $post['content'] . "</p>";
+        $img = $post['image'];
+        $imgAlt = $post['title'];
+        echo "<img src='../images/$img' alt='$imgAlt' height='300' width='auto'>";
 
         echo "</div>";
 
@@ -38,6 +41,7 @@ session_start();
          echo "<b>Name:</b> " . $post['title'] . "<br />";
          echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
          echo "<b>Posted:</b> " . $post['created'] . "<br />";
+         
 
         
          //Ändrat så bara admin kan edita och deleta
