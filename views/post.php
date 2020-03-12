@@ -42,16 +42,13 @@ session_start();
         echo "</div>";
 
         echo "<div class='comment-section'>";
-<<<<<<< HEAD
         echo "<h2> Comments </h2>";
          echo "<b>Name:</b> " . $post['title'] . "<br />";
          echo "<b>Message:</b><br /> " . $post['content'] . "<br />";
          echo "<b>Posted:</b> " . $post['created'] . "<br />";
          
 
-=======
         echo "<h2 class='comment-title'> Comments </h2>";
->>>>>>> 3e0af7293533ed3fa8be4c0f4166d69534d83d93
         
 
 
