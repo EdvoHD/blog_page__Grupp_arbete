@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/tobiascss.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,700i&display=swap" rel="stylesheet">
 </head>
 
 
