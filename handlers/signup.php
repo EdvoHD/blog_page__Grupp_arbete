@@ -51,7 +51,7 @@
         if(!$return) {
             print_r($dbh->errorInfo());
         } else {
-            header("location:../index.php?page=login&register=success");
+            header("location:../index.php");
         }
     }
 
