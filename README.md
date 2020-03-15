@@ -1,8 +1,21 @@
-# Min php sida
+# Grupp projekt - Edvin, Tobias, Dante
 
-## Installation
+## Standards
 
-1. Uppdatera db.php med dina lokala inställningar.# blog_page__Grupp_arbete
+1. Vi använde oss av camel-case, exempel(variabelNamn).
+
+2. Vi delade upp filerna i 2 huvudmappar. 
+Views var filer då nån slags html-kod existerade och visades för användaren.
+Handlers tog emot data och hanterade processer som skickades ifrån formulär inifrån /views filerna.
+ 
+ Strukturen på hur sidorna laddas in var via url tags ($_GET) som stämde av vilken view borde laddas in och visas för användaren. (index.php - rad 50).
+ 
+ Vi använde oss utan ($_SESSION) värden för att kunna hålla inloggningen sparad på sidan. 
+ Classes implementerades på posts (Se GBposts.php).
+ 
+ 
+ 
+      
 
 ## Introduktion
 Navigering som användare:
@@ -46,10 +59,34 @@ Syftet med bloggen är att grosisten Millhouse ska få närmare relation med der
 5. Inlägg editas genom att klicka på ett inlägg och sedan "Edit!" som endast visas om role = Admin. Användare skickas till redigeringssidan. Alla fält måste vara ifyllda och filen måste vara en bild. ändringarna redigeras i databasen och i flödet. Misslyckas redigeringen visas felmeddelande. 
 
 5.1 Inlägg tas bort genom att klicka på "Delete!". Inläggets kommentarer tas bort och därefter tas inlägg bort i databasen. Användare skickas tillbaks till flödet.
+
 6. Kommentarer och kommentarsfält visas på inläggets sida under inlägg.
+
 6.1 Kommentar skapas genom att fylla i kommentarsfältet och klicka på "Comment!". Kommentar skapas med användarens namn.
+
 6.2 Kommentar misslyckas. Alla fält måste vara ifyllda.
+
 6.3 Admin kan ta bort olämpliga kommentarer genom att klicka på krysset. Kommentaren tas bort från inlägg och databas.
+
+6.4 Användare kan även ta bort sina egna kommentarer men kan inte påverka andras kommentarer.
+
+
+## Sammanfatting och säkerhet
+
+Projektet lyckades och vi har fått en slutgiltig produkt. 
+Produkten har många förbättringsområden men det är en bra start. 
+Vi löste de usecases som krävdes och med få hinder.
+
+Våra hinder var att påbörja posts & comments vilket tog en tid att planera upplägget. 
+Efter planeringen så flöt arbetet på galant. 
+
+Förbättringsmöjligheter:
+- Kunna uppdatera en post utan att behöva re-upload sin bild.
+- Kunna ta bort sitt konto som användare.
+- Admin ska kunna ta bort användarkonton.
+- HTML säkerhet på UPDATE post ( fick inte det att lira till 100% ).
+
+html kod går ej att få igenom inuti kommentarer, utan de slutar endast som vanlig text.
 
 
 
