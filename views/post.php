@@ -17,19 +17,19 @@ include("../db/db.php");
 include("../classes/gbposts.php");
 
 session_start();
-
+    // hämtar värden ifrån posts
     $post_query = "SELECT id, title, content, image, category, created FROM posts WHERE id={$_GET['id']}";
     $result = $dbh->query($post_query);
 
     
-
+    // Loopar ut infon ifrån $post_query som $post. Skapar upp alla divar för post.php sidans struktur. 
+    // 
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
         $img = $post['image'];
         $imgAlt = $post['title'];
 
         echo "<div class='post-buttons'>";
-         //Ändrat så bara admin kan edita och deleta
-
+         // Checkar ifall du är admin och då har du möjlighet att ta bort & redigera posts
          if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
                 echo "<a href=\"../handlers/delete_post.php?action=delete&post_id=" . $post['id'] . "\">Delete!</a>";
                 echo " | ";
@@ -54,16 +54,13 @@ session_start();
 
         echo "</p>";
     }
-
-    //$comment_query = "SELECT id, content, created, postId, userId FROM comments WHERE postId={$_GET['id']}";
-    //$comment_query = "SELECT comments.id, comments.content, created, postId, userId FROM comments JOIN users on users.id = comments.usersID WHERE postId= $post_id ORDER BY date $this->order WHERE postId={$_GET['id']}";
-    //$carl_query = "SELECT comments.id, content, date, postId, userId, users.username FROM comments JOIN users on users.id = comments.userId WHERE postId={$_GET['id']}";
-    $ank_query = "SELECT comments.id, content, comments.created, postId, userId, users.username FROM comments JOIN users on users.id = comments.userId WHERE postId = {$_GET['id']}";
-    // /* ORDER BY date $this->order */ 
-    $result = $dbh->query($ank_query);
+    // Join commens & users för att kunna visa både vilka kommentarer som skrivits men även ifrån vilken användare.
+    // Och då joinar vi dessa tabeller så inte bara USERID med en siffra visas utan det faktiska användarnamnet som skapats i registeringsprocessen
+    $join_query = "SELECT comments.id, content, comments.created, postId, userId, users.username FROM comments JOIN users on users.id = comments.userId WHERE postId = {$_GET['id']}";
+    $result = $dbh->query($join_query);
 
     if($result != false) {
-
+        // Loopar ut alla kommentarer för det specifika inlägget.
         foreach($result->fetchAll(PDO::FETCH_ASSOC) as $post) {
             echo "<div class='comment-container'><p class='comment-username'>" . $post['username'] . ":</p> ";
             echo "<p class='comment-content'>" . $post['content'] . "</p>";
@@ -81,9 +78,8 @@ session_start();
 
     echo "</div>"; // slut på comment-section
 
-
+    // Formulär för att skapa en kommentar
 ?>
-
     <form class="comment-form" method="POST" action="../handlers/create_comment.php?post_id=<?php echo $_GET['id']; ?>">
     <h4>Create a comment:</h4>
     <textarea rows="5" cols="50" name="content" placeholder="write your comment.."></textarea><br />

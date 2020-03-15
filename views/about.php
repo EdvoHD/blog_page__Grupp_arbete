@@ -1,3 +1,10 @@
+<head>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tobiascss.css">
+</head>
+<div class="back-btn">
+        <a href="../index.php"> <- Go back</a>
+    </div>
 <div class="aboutBanner">
     <div class="aboutContainer">
         <h2>About Millhouse</h2>
@@ -8,25 +15,25 @@
     <h2>WHO ARE WE</h2>
     <div class="aboutContent">
         <div>
-            <img src="images/ourHistory.jpg" alt="Our History">
+            <img src="../images/ourHistory.jpg" alt="Our History">
             <h3>Our History</h3>
             <hr>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati consectetur debitis, inventore quo quaerat neque.</p>
         </div>
         <div>
-            <img src="images/ourProducts.jpg" alt="Our History">
+            <img src="../images/ourProducts.jpg" alt="Our History">
             <h3>Our Products</h3>
             <hr>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati consectetur debitis, inventore quo quaerat neque.</p>
         </div>
         <div>
-            <img src="images/ourTeam.jpeg" alt="Our History">
+            <img src="../images/ourTeam.jpeg" alt="Our History">
             <h3>Our Team</h3>
             <hr>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati consectetur debitis, inventore quo quaerat neque.</p>
         </div>
         <div>
-            <img src="images/ourValues.png" alt="Our History">
+            <img src="../images/ourValues.png" alt="Our History">
             <h3>Our Values</h3>
             <hr>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati consectetur debitis, inventore quo quaerat neque.</p>

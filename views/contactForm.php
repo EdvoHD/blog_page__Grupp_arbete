@@ -1,3 +1,10 @@
+<head>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tobiascss.css">
+</head>
+<div class="back-btn">
+        <a href="../index.php"> <- Go back</a>
+    </div>
 <div class="contactContainer">
     <div class="contactInfoContainer"> 
         <div class="contactInfoTitle">

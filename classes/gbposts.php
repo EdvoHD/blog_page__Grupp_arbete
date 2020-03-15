@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 class GBPost {
     private $databaseHandler;
     //private $order = "desc";
@@ -11,8 +15,13 @@ class GBPost {
     }
 
     public function fetchAll() {
-        $flow_query = "SELECT id, title, content, image, category, created FROM posts";
-        //$query = "SELECT id, title, content, created FROM messages ORDER BY date_posted $this->order";
+
+        // sätter en variabel för i vilken ordning posts ska visas
+        $order = "desc";
+        if (isset($_GET['order']) && $_GET['order'] == "ascending") {
+            $order = "asc";
+        }
+        $flow_query = "SELECT id, title, content, created FROM posts ORDER BY created $order";
 
         $return_array = $this->databaseHandler->query($flow_query);
         $return_array = $return_array->fetchAll(PDO::FETCH_ASSOC);
